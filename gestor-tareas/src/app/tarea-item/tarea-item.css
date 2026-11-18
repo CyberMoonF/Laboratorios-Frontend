@@ -1,0 +1,9 @@
+li {
+  margin: 0.4rem 0;
+  list-style: none;
+}
+
+.hecha span {
+  text-decoration: line-through;
+  color: gray;
+}

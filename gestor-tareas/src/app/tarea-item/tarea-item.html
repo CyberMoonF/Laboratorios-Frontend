@@ -1,0 +1,9 @@
+<li [class.hecha]="tarea().hecha">
+  <input
+    type="checkbox"
+    [checked]="tarea().hecha"
+    (change)="alternada.emit(tarea().id)"
+  />
+  <span>{{ tarea().texto }}</span>
+  <button (click)="eliminada.emit(tarea().id)">Eliminar</button>
+</li>

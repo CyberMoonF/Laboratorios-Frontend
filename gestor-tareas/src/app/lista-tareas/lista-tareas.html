@@ -1,0 +1,23 @@
+<input
+  #nueva
+  placeholder="Nueva tarea y Enter"
+  (keyup.enter)="agregar(nueva.value); nueva.value = ''"
+/>
+
+@if (tareas().length > 0) {
+  <p>Pendientes: {{ pendientes() }} de {{ total() }}</p>
+} @else {
+  <p>No hay tareas. ¡Agrega la primera!</p>
+}
+
+<ul>
+  @for (t of tareas(); track t.id) {
+    <app-tarea-item
+      [tarea]="t"
+      (alternada)="alternar($event)"
+      (eliminada)="eliminar($event)"
+    />
+  } @empty {
+    <li>No hay tareas. ¡Agrega la primera!</li>
+  }
+</ul>

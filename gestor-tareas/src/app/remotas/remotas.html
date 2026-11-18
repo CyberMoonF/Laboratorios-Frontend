@@ -1,0 +1,14 @@
+<h2>Tareas remotas</h2>
+
+@if (remotas.isLoading()) {
+  <p>Cargando...</p>
+} @else if (remotas.error()) {
+  <p>No se pudo cargar la información.</p>
+  <button (click)="remotas.reload()">Reintentar</button>
+} @else if (remotas.hasValue()) {
+  <ul>
+    @for (tarea of remotas.value(); track tarea.id) {
+      <li>{{ tarea.completed ? '✓' : '○' }} {{ tarea.title }}</li>
+    }
+  </ul>
+}
